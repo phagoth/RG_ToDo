@@ -1,0 +1,36 @@
+<div class="row clearfix">
+<% # byebug %>
+  <% if task.completed? %>
+    <div class="complete">
+      <%= link_to complete_project_task_path(task.project_id, task.id), method: :patch do %>
+        <i style='opacity: 0.4;' class='fa fa-check'></i>
+      <% end %>
+    </div>
+    <div class="task">
+      <p style="opacity: 0.4;"><strike><%= task.name  %></strike></p>
+    </div>
+    <div class="trash">
+      <%= link_to project_task_path(task.project_id, task.id), method: :delete, data: { confirm: 'Are you sure?'} do %>
+        <i class='fa fa-trash'></i>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="complete">
+      <%= link_to complete_project_task_path(task.project_id, task.id), method: :patch do%>
+        <i class='fa fa-check'></i>
+      <% end %>
+    </div>
+    <div class="task">
+      <p><%= task.name %></p>
+    </divs>
+    <div class="edit">
+      <%= link_to edit_project_task_path(task.project_id, task.id) do %>
+        <i class='fa'></i>
+      <% end %>
+    </div>
+    <div class="trash">
+      <%= link_to project_task_path(task.project_id, task.id), method: :delete, data: { confirm: 'Are you sure?'} do %>
+        <i class='fa fa-trash'></i>
+      <% end %>
+  <% end %>
+</div>
