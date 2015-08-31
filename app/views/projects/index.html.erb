@@ -1,25 +1,36 @@
-<h1>Listing projects</h1>
-
 <% @projects.each do |project| %>
   <div class="container">
     <div class="index_row clearfix">
-      <h2><%= project.name %></h2>
-      <small><%= link_to 'Edit', edit_project_path(project) %></small>
-      <small><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></small>
+      <p class="project_title"><i class="fa fa-calendar"></i><%= project.name %></p>
+      <small>
+        <%= link_to edit_project_path(project) do %>
+          <i class='fa fa-pencil'></i>
+        <% end %>
+      </small>
+      <small>
+        <%= link_to project, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class='fa fa-trash'></i>
+        <% end %>
+      </small>
+      <br>
+      <div id="task_wrapper">
+        <%= render project.tasks %>
+        <div id="form">
+          <%= form_for([project, project.tasks.build]) do |f|%>
+            <%= f.text_field :name, placeholder: 'Start typing here to create a task...'%>
+            <%= f.submit%>
+          <% end %> 
+        </div>
+      </div> 
     </div>
     
-    <div class="todo_items_wrapper">
-      <%= render project.tasks, project_id: project %>
-      <div id="form">
-        <%= form_for([project, project.tasks.build]) do |f|%>
-          <%= f.text_field :name, placeholder: 'New ToDo'%>
-          <%= f.submit%>
-        <% end %> 
-      </div>
-    </div> 
   </div>
 <% end %>
 
 <br>
-
-<%= link_to 'New Project', new_project_path %>
+<div class="bottom-link" align="center">
+  <%= link_to new_project_path, id: "add-project", class: "btn btn-lg btn-primary" do %>
+    <i class="fa fa-plus"></i>
+    Add TODO List
+  <% end %>
+</div>
