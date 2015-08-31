@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :projects do
     resources :tasks do
       member do
@@ -6,6 +7,6 @@ Rails.application.routes.draw do
       end
     end
   end
-  root "projects#index"
+  root to: "projects#index"
   
 end
