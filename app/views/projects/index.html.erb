@@ -1,7 +1,8 @@
 <% @projects.each do |project| %>
   <div class="container">
-    <div class="index_row clearfix">
-      <p class="project_title"><i class="fa fa-calendar"></i><%= project.name %></p>
+    <div class="project-header">
+      <i class="fa fa-calendar"></i>
+      <p class="project_title"><%= project.name %></p>
       <small>
         <%= link_to edit_project_path(project) do %>
           <i class='fa fa-pencil'></i>
@@ -12,7 +13,8 @@
           <i class='fa fa-trash'></i>
         <% end %>
       </small>
-      <br>
+    </div>
+    <div class="index_row clearfix">
       <div id="task_wrapper">
         <%= render project.tasks %>
         <div id="form">
