@@ -10,8 +10,6 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  */
 
 @import "bootstrap-sprockets";
@@ -24,18 +22,50 @@ $dark: #1F7972;
 * {
   box-sizing: border-box;
 }
+
 html {
   height: 100%;
 }
 
 body {
-  height: 100%;
   background: -webkit-linear-gradient( #d3cdc2 40%, #d1a31e 60%, #b75a0c 100%);
   background:    -moz-linear-gradient( #d3cdc2 40%, #d1a31e 60%, #b75a0c 100%);
   background:     -ms-linear-gradient( #d3cdc2 40%, #d1a31e 60%, #b75a0c 100%);
   background:      -o-linear-gradient( #d3cdc2 40%, #d1a31e 60%, #b75a0c 100%);
   background:         linear-gradient( #d3cdc2 40%, #d1a31e 60%, #b75a0c 100%);
+  background-attachment: fixed;
+  padding-top: 50px;
   font-family: 'Lato', sans-serif;
+}
+
+.blue-gradient {
+  background: -webkit-linear-gradient( #5080BF, #33609B );
+  background:    -moz-linear-gradient( #5080BF, #33609B );
+  background:     -ms-linear-gradient( #5080BF, #33609B );
+  background:      -o-linear-gradient( #5080BF, #33609B );
+  background:         linear-gradient( #5080BF, #33609B );
+}
+
+.green-gradient {
+  background: -webkit-linear-gradient( #96CDB0, #4D8464 );
+  background:    -moz-linear-gradient( #96CDB0, #4D8464 );
+  background:     -ms-linear-gradient( #96CDB0, #4D8464 );
+  background:      -o-linear-gradient( #96CDB0, #4D8464 );
+  background:         linear-gradient( #96CDB0, #4D8464 );
+}
+
+.lightgray-gradient {
+  background: -webkit-linear-gradient( #dfdfdf, #cbcbcb );
+  background:    -moz-linear-gradient( #dfdfdf, #cbcbcb );
+  background:     -ms-linear-gradient( #dfdfdf, #cbcbcb );
+  background:      -o-linear-gradient( #dfdfdf, #cbcbcb );
+  background:         linear-gradient( #dfdfdf, #cbcbcb );
+}
+
+.green-gradient-symbol {
+  color: #588f72;
+  font-size: 2.5em !important;
+  text-shadow: 0px -1px 2px rgba(0, 0, 0, 0.4), 0px 1px 2px rgba(250, 250, 250, 0.4);
 }
 
 .clearfix:before,
@@ -60,65 +90,63 @@ body {
   max-width: 750px;
   background: $white_opaque;
   margin: 3em auto 0 auto;
-  border-radius: 7px;
-  -webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,.3);
-  box-shadow: 0 0 4px 4px rgba(0,0,0,.03);
+  border-radius: 0 0 15px 15px;
   padding: 0 0 1em 0;
 }
 
 .project-header {
-  text-align: left;
+  text-align: center;
   font-weight: 400;
   font-size: 2.5rem;
-  color: white;
-  background: #426daf;
-  i {
+  .small-buttons {
     color: $gray;
     transition: all .4s ease-in-out;
     &:hover {
       color: $dark;
     }
   }
-}
-
-.project_title {
-  text-align: left;
-  font-weight: 400;
-  font-size: 2.5rem;
-  color: white;
-  margin: 0;
-  a {
-    text-decoration: none;
+  .project_title {
+    text-align: left;
+    font-weight: 400;
+    font-size: 2rem;
     color: white;
-    transition: all .4s ease-in-out;
-    &:hover {
-      opacity: 0.4;
-    }
+    margin: 0;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
   }
-
-
 }
 
-.index_row {
-  padding-left: 2em;
-  padding-right: 2em;
+.row {
+  margin-left: 0;
+  margin-right: 0;
+  display: flex;
+  align-items: center;
+  height: 50px;
 }
 
-#task_wrapper {
+.hover-colorize {
+  &:hover {
+    background-color: #FCFED5;
+  }
+}
+.hide {
+  display: hide;
+}
+.task_wrapper {
   .row {
     width: 100%;
-    border-top: 1px solid rgba(200,200,200, .3);
-    border-bottom: 1px solid rgba(200,200,200, .3);
+    border-bottom: 1px solid;
+    border-color: lightgray;
     .complete {
-      width: 10%;
       float: left;
       text-align: center;
-      border-right: 1px solid rgba(200,200,200, .3);
+      border-right: 4px double;
+      border-color: #efdbe0;
       padding: 1em 0;
     }
     .task {
-      width: 70%;
       float: left;
+      border-right: 1px solid;
+      border-color: lightgray;
       p {
         margin: 0;
         padding: 1em;
@@ -127,10 +155,8 @@ body {
       }
     }
     .trash {
-      width: 20%;
       float: left;
       text-align: center;
-      border-left: 1px solid rgba(200,200,200, .3);
       padding: 1em 0;
       i {
         // visibility: hidden;
@@ -152,37 +178,53 @@ body {
       }
     }
   }
-  #form {
-    margin-top: 2em;
-    padding: 0 5%;
-    background: $gray;
-    input[type="text"] {
-      width: 72%;
-      margin-right: 2%;
-      display: inline-block;
-      outline: none;
-      background: rgba(250,250,250,.9);
-      border: none;
-      height: 40px;
-      border-radius: 4px;
-      padding: 0.5em 2em;
-    }
-    input[type="submit"] {
-      background: rgba(250,250,250,.9);
-      outline: none;
-      border: none;
-      height: 40px;
-      border-radius: 4px;
-      width: 25%;
-      display: inline-block;
-      transition: all .4s ease-in-out;
-      cursor: pointer;
-      &:hover {
-        background: $dark;
-      }
-    }
-    ::-webkit-input-placeholder { color: $dark; }
+}
+form {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.form {
+  // padding: 0 2%;
+  height: 100%;
+  
+  input[type="text"] {
+    margin: .5em 0 .7em .5em;
+    display: inline-block;
+    outline: none;
+    background: $white_opaque;
+    border-left-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-style: inset;
+    border-color: #696969;
+    height: 30px;
+    padding: 0.5em 2em;
   }
+  input[type="submit"] {
+    margin: .5em 0 .7em .5em;
+    outline: none;
+    border: 1px solid #696969;
+    height: 30px;
+    border-radius: 0 4px 4px 0;
+    color: white;
+    display: inline-block;
+    cursor: pointer;
+  }
+  ::-webkit-input-placeholder { color: $dark; }
+}
+
+.shadow {
+  -webkit-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
+}
+
+.raised {
+  border: 1px outset #696969;
+}
+
+.outlined {
+  outline: 1px solid gray;
 }
 
 .links {
@@ -195,41 +237,3 @@ body {
     color: white;
   }
 }
-
-.forms {
-  padding: 0 5%;
-}
-label {
-  color: $dark;
-}
-input[type="text"], textarea {
-  width: 100%;
-  margin: .5em 2% .5em 0;
-  display: inline-block;
-  outline: none;
-  background: rgba(250,250,250,.9);
-  border: none;
-  height: 40px;
-  border-radius: 4px;
-  padding: 1em 2em;
-}
-textarea {
-  height: 200px;
-}
-input[type="submit"] {
-  background: white;
-  outline: none;
-  border: none;
-  height: 40px;
-  border-radius: 4px;
-  width: 25%;
-  display: inline-block;
-  transition: all .4s ease-in-out;
-  cursor: pointer;
-  color: $dark;
-  &:hover {
-    background: $dark;
-    color: white;
-  }
-}
-::-webkit-input-placeholder { color: $dark; }

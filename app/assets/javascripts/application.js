@@ -15,3 +15,21 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(document).ready(function(){
+  $(".project-header").hover(
+    function () {
+      $(this).find(".small-buttons").removeClass("hide");
+    },
+    function () {
+      $(this).find(".small-buttons").addClass("hide");
+    }
+  );
+  $(".task_wrapper").find(".row").hover(
+    function () {
+      $(this).find(".trash").removeClass("hide");
+    },
+    function () {
+      $(this).find(".trash").addClass("hide");
+    }
+  );
+});  

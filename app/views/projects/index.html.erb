@@ -1,29 +1,33 @@
 <% @projects.each do |project| %>
-  <div class="container">
-    <div class="project-header">
-      <i class="fa fa-calendar"></i>
-      <p class="project_title"><%= project.name %></p>
-      <small>
-        <%= link_to edit_project_path(project) do %>
-          <i class='fa fa-pencil'></i>
-        <% end %>
-      </small>
-      <small>
-        <%= link_to project, method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <i class='fa fa-trash'></i>
-        <% end %>
-      </small>
+  <div class="container shadow">
+    <div class="row clearfix blue-gradient project-header raised outlined">
+      <div class="calender col-xs-1">
+        <i class="fa fa-calendar"></i>
+      </div>
+      <div class="project_title col-xs-9"><%= project.name %></div>
+      <div class="small-buttons col-xs-2 hide">
+        <small>
+          <%= link_to edit_project_path(project) do %>
+            <i class='fa fa-pencil'></i>
+          <% end %>
+        </small>
+        |
+        <small>
+          <%= link_to project, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class='fa fa-trash'></i>
+          <% end %>
+        </small>
+      </div>
     </div>
-    <div class="index_row clearfix">
-      <div id="task_wrapper">
-        <%= render project.tasks %>
-        <div id="form">
-          <%= form_for([project, project.tasks.build]) do |f|%>
-            <%= f.text_field :name, placeholder: 'Start typing here to create a task...'%>
-            <%= f.submit%>
-          <% end %> 
-        </div>
-      </div> 
+    <div class="task_wrapper">
+      <%= render project.tasks %>
+    </div> 
+    <div class="form raised outlined lightgray-gradient">
+        <%= form_for([project, project.tasks.build], class: "row") do |f|%>
+          <i class="fa fa-plus col-xs-1 green-gradient-symbol"></i>
+          <%= f.text_field :name, placeholder: 'Start typing here to create a task...', class: "col-xs-9" %>
+          <%= f.submit 'Add task', class: "green-gradient col-xs-2" %>
+        <% end %> 
     </div>
     
   </div>
@@ -31,7 +35,7 @@
 
 <br>
 <div class="bottom-link" align="center">
-  <%= link_to new_project_path, id: "add-project", class: "btn btn-lg btn-primary" do %>
+  <%= link_to new_project_path, id: "add-project", class: "btn btn-lg btn-primary blue-gradient shadow raised" do %>
     <i class="fa fa-plus"></i>
     Add TODO List
   <% end %>
