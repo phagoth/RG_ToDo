@@ -19,17 +19,22 @@
   end
 
   def destroy
-    if @task.destroy
-      flash[:success] = "Task was deleted succesfullly."
-    else
-      flash[:error] = "Task could not be deleted."
+    respond_to do |format|
+      if @task.destroy
+        format.html { redirect_to root_path, notice: 'Task was deleted succesfullly.' }
+        format.js   { }
+        format.json { head :no_content }
+      end
     end
-    # redirect_to root_url
   end
 
   def complete
-    @task.update_attribute(:completed_at, Time.now)
-    redirect_to root_url, notice: "Todo item completed"
+    respond_to do |format|
+      if @task.update_attribute(:completed_at, Time.now)
+        format.html { redirect_to root_path, notice: 'Todo item completed.' }
+        format.js   { }
+      end
+    end
   end
 
   private

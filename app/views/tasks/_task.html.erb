@@ -1,37 +1,21 @@
-<div class="row clearfix hover-colorize">
-  <% if task.completed? %>
-    <div class="complete col-xs-1">
-      <%= link_to complete_project_task_path(task.project_id, task.id), method: :patch do %>
-        <i style='opacity: 0.4;' class='fa fa-check'></i>
-      <% end %>
-    </div>
-    <div class="task col-xs-9">
-      <p style="opacity: 0.4;"><strike><%= task.name  %></strike></p>
-    </div>
-    <div class="trash col-xs-2 hide">
-      <%= link_to project_task_path(task.project_id, task.id), method: :delete, data: { confirm: 'Are you sure?'}, class: 'delete-task', remote: true do %>
-        <i class='fa fa-trash'></i>
-      <% end %>
-    </div>
-  <% else %>
-    <div class="complete col-xs-1">
-      <%= link_to complete_project_task_path(task.project_id, task.id), method: :patch do%>
-        <i class='fa fa-check'></i>
-      <% end %>
-    </div>
-    <div class="task col-xs-9">
-      <p><%= task.name %></p>
-    </div>
-    <div class="trash col-xs-2 hide">
-      <i class="fa fa-sort"></i>
-      |
-      <%= link_to project_task_path(task.project_id, task.id) do %>
-        <i class='fa fa-pencil'></i>
-      <% end %>
-      |
-      <%= link_to project_task_path(task.project_id, task.id), method: :delete, data: { confirm: 'Are you sure?'}, class: 'delete-task', remote: true do %>
-        <i class='fa fa-trash'></i>
-      <% end %>
-    </div>
-  <% end %>
+<div class="row clearfix hover-colorize <%= task.completed? ? 'completed' : '' %>">
+  <div class="complete col-xs-1">
+    <%= link_to complete_project_task_path(task.project_id, task.id), remote: true, method: :patch, class: "complete-task" do%>
+      <i class='fa fa-check'></i>
+    <% end %>
+  </div>
+  <div class="task col-xs-9">
+    <p><%= task.name %></p>
+  </div>
+  <div class="trash col-xs-2 hide">
+    <i class="fa fa-sort"></i>
+    |
+    <%= link_to project_task_path(task.project_id, task.id) do %>
+      <i class='fa fa-pencil'></i>
+    <% end %>
+    |
+    <%= link_to project_task_path(task.project_id, task.id), method: :delete, data: { confirm: 'Are you sure?'}, class: 'delete-task', remote: true do %>
+      <i class='fa fa-trash'></i>
+    <% end %>
+  </div>
 </div>

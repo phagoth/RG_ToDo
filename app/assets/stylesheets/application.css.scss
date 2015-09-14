@@ -103,6 +103,9 @@ body {
   }
   .input_title {
     background: none;
+    border: 1px solid;
+    border-radius: 5px;
+    border-color: $white_opaque;
   }
   .small-buttons {
     color: $gray;
@@ -190,6 +193,14 @@ body {
         color: $dark;
       }
     }
+  }
+}
+.completed {
+  i, p {
+    opacity: 0.4;
+  }
+  p {
+    text-decoration: line-through red;
   }
 }
 form {
