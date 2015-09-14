@@ -7,6 +7,11 @@ Rails.application.routes.draw do
       end
     end
   end
-  root to: "projects#index"
+
+  authenticated :user do
+    root to: 'projects#index', as: :authenticated_root
+  end
+
+  root to: redirect('/users/sign_in')
   
 end

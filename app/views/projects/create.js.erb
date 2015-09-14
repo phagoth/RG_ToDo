@@ -1,0 +1,9 @@
+new_project = $("<%= escape_javascript(render @project) %>").appendTo("#project-container");
+new_project.hover(
+    function () {
+      $(this).find(".small-buttons").removeClass("hide");
+    },
+    function () {
+      $(this).find(".small-buttons").addClass("hide");
+    }
+  );

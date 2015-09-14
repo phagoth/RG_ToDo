@@ -9,7 +9,7 @@
       <p style="opacity: 0.4;"><strike><%= task.name  %></strike></p>
     </div>
     <div class="trash col-xs-2 hide">
-      <%= link_to project_task_path(task.project_id, task.id), method: :delete, data: { confirm: 'Are you sure?'} do %>
+      <%= link_to project_task_path(task.project_id, task.id), method: :delete, data: { confirm: 'Are you sure?'}, class: 'delete-task', remote: true do %>
         <i class='fa fa-trash'></i>
       <% end %>
     </div>
@@ -29,7 +29,7 @@
         <i class='fa fa-pencil'></i>
       <% end %>
       |
-      <%= link_to project_task_path(task.project_id, task.id), method: :delete, data: { confirm: 'Are you sure?'} do %>
+      <%= link_to project_task_path(task.project_id, task.id), method: :delete, data: { confirm: 'Are you sure?'}, class: 'delete-task', remote: true do %>
         <i class='fa fa-trash'></i>
       <% end %>
     </div>

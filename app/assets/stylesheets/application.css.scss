@@ -101,8 +101,12 @@ body {
   .small-buttons {
     color: $gray;
     transition: all .4s ease-in-out;
-    &:hover {
-      color: $dark;
+    a {
+      color: $white_opaque;
+      text-decoration: none;
+      &:hover {
+        color: $dark;
+      }
     }
   }
   .project_title {
@@ -169,6 +173,9 @@ body {
           color: $dark;
         }
       }
+      a {
+        text-decoration: none;
+      }
     }
     i {
       color: $gray;
@@ -202,7 +209,7 @@ form {
     padding: 0.5em 2em;
   }
   input[type="submit"] {
-    margin: .5em 0 .7em .5em;
+    margin: .5em .5em .7em 0;
     outline: none;
     border: 1px solid #696969;
     height: 30px;

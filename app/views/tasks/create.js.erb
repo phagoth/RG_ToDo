@@ -1,0 +1,11 @@
+project_div = $("#project_<%= @project.id %>")
+new_task = $("<%= escape_javascript(render @task) %>").appendTo(project_div.find(".task_wrapper"));
+new_task.hover(
+    function () {
+      $(this).find(".trash").removeClass("hide");
+    },
+    function () {
+      $(this).find(".trash").addClass("hide");
+    }
+  );
+project_div.find(".new_task #task_name")[0].value = "";
