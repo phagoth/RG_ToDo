@@ -24,7 +24,7 @@
     </div>
   </div>
   <div class="form raised outlined lightgray-gradient">
-      <%= form_for([project, Task.new], remote: true, class: "row" ) do |f|%>
+      <%= form_for([project, Task.new], remote: true, html: { class: "task-form" } ) do |f|%>
         <i class="fa fa-plus col-xs-1 green-gradient-symbol"></i>
         <%= f.text_field :name, placeholder: 'Start typing here to create a task...', class: "col-xs-9" %>
         <%= f.submit 'Add task', class: "green-gradient col-xs-2" %>

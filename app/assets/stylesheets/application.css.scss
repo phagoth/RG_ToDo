@@ -78,6 +78,13 @@ body {
     clear: both;
 }
 
+.navbar {
+  border: none;
+  .navbar-right {
+    margin: 0;
+  }
+}
+
 #notice {
   text-align: center;
   font-size: 0.6em;
@@ -203,7 +210,7 @@ body {
     text-decoration: line-through red;
   }
 }
-form {
+.task-form {
   height: 100%;
   display: flex;
   align-items: center;
@@ -249,6 +256,10 @@ form {
 
 .outlined {
   outline: 1px solid gray;
+}
+
+.low-margin {
+  margin: 1em;
 }
 
 .links {
