@@ -3,10 +3,15 @@
     <div class="calender col-xs-1">
       <i class="fa fa-calendar"></i>
     </div>
-    <div class="project_title col-xs-9"><%= project.name %></div>
+    <div class="project_title col-xs-9">
+      <%= form_for(project, remote: true) do |f| %>
+          <%= f.label "#{project.name}", class: 'label_title' %>
+          <%= f.text_field :name, class: 'input_title' %>
+      <% end %>
+    </div>
     <div class="small-buttons col-xs-2 hide">
       <small>
-        <%= link_to edit_project_path(project) do %>
+        <%= link_to '', class: "edit-project" do %>
           <i class='fa fa-pencil'></i>
         <% end %>
       </small>

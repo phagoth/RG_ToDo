@@ -24,7 +24,8 @@ $(document).ready(function(){
       $(this).find(".small-buttons").addClass("hide");
     }
   );
-  $(".task_wrapper").find(".row").hover(
+
+  $(".task_wrapper .row").hover(
     function () {
       $(this).find(".trash").removeClass("hide");
     },
@@ -32,4 +33,13 @@ $(document).ready(function(){
       $(this).find(".trash").addClass("hide");
     }
   );
+
+  $(".input_title").hide();
+
+  $(".edit-project").on('click', function(){
+    $(this).parents('div').find('.label_title').hide();
+    $(this).parents('div').find('.input_title').show();
+    
+    return false;
+  });
 });  

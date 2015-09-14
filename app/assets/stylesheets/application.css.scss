@@ -98,6 +98,12 @@ body {
   text-align: center;
   font-weight: 400;
   font-size: 2.5rem;
+  label {
+    margin: 0;
+  }
+  .input_title {
+    background: none;
+  }
   .small-buttons {
     color: $gray;
     transition: all .4s ease-in-out;
