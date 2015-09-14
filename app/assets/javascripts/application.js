@@ -37,8 +37,8 @@ $(document).ready(function(){
   $(".input_title").hide();
 
   $(".edit-project").on('click', function(){
-    $(this).parents('div').find('.label_title').toggle();
-    $(this).parents('div').find('.input_title').toggle();
+    $(this).parents('.project-header').find('.label_title').toggle();
+    $(this).parents('.project-header').find('.input_title').toggle();
     
     return false;
   });
