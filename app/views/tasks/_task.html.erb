@@ -1,7 +1,7 @@
 <div class="row clearfix hover-colorize <%= task.completed? ? 'completed' : '' %>">
   <div class="complete col-xs-1">
     <%= link_to complete_project_task_path(task.project_id, task.id), remote: true, method: :patch, class: "complete-task" do%>
-      <i class='fa fa-check'></i>
+      <i class='fa <%= task.completed? ? 'fa-check-square-o' : 'fa-square-o' %>' ></i>
     <% end %>
   </div>
   <div class="task col-xs-9">

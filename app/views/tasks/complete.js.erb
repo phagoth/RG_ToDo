@@ -1,1 +1,6 @@
-$('.complete-task').bind('ajax:success', function() {$(this).closest('.row').addClass("completed")})
+$('.complete-task').bind('ajax:success', function() {
+  $(this).closest('.row').addClass("completed");
+  checkbox = $(this).find(".fa");
+  checkbox.removeClass("fa-square-o");
+  checkbox.addClass("fa-check-square-o");
+});
