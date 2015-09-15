@@ -5,7 +5,7 @@
     </div>
     <div class="project_title col-xs-9">
       <%= form_for project, remote: true do |f| %>
-          <%= f.label :name, class: 'label_title' %>
+          <%= f.label "#{project.name}", class: 'label_title' %>
           <%= f.text_field :name, class: 'input_title' %>
       <% end %>
     </div>
