@@ -1,0 +1,4 @@
+project_div = $("#project_<%= @project.id %>");
+label = project_div.find('.label_title').toggle();
+input = project_div.find('.input_title').toggle();
+label[0].textContent = input[0].value;
