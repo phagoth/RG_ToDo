@@ -5,12 +5,15 @@
     <% end %>
   </div>
   <div class="task col-xs-9">
-    <p><%= task.name %></p>
+    <%= form_for( [task.project, task], remote: true ) do |f| %>
+        <%= f.label "#{task.name}", class: 'task_label_title' %>
+        <%= f.text_field :name, class: 'task_input_title' %>
+    <% end %>
   </div>
   <div class="trash col-xs-2 hide">
     <i class="fa fa-sort"></i>
     |
-    <%= link_to project_task_path(task.project_id, task.id) do %>
+    <%= link_to '', class: "edit-task" do %>
       <i class='fa fa-pencil'></i>
     <% end %>
     |

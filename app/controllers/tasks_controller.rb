@@ -18,6 +18,16 @@
     end
   end
 
+  def update
+    respond_to do |format|
+      if @task.update(task_params)
+        format.html { redirect_to root_path, notice: 'Task was successfully updated.' }
+        format.js   { }
+        format.json { render :show, status: :ok, location: @task }
+      end
+    end
+  end
+
   def destroy
     respond_to do |format|
       if @task.destroy

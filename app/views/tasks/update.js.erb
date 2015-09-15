@@ -1,0 +1,4 @@
+task_div = $("#edit_task_<%= @task.id %>");
+label = task_div.find('.task_label_title').toggle();
+input = task_div.find('.task_input_title').toggle();
+label[0].textContent = input[0].value;

@@ -167,11 +167,12 @@ body {
       float: left;
       border-right: 1px solid;
       border-color: lightgray;
-      p {
+      margin: 0;
+      padding: 1em;
+      color: $dark;
+      font-weight: 100;
+      label {
         margin: 0;
-        padding: 1em;
-        color: $dark;
-        font-weight: 100;
       }
     }
     .trash {
@@ -203,10 +204,10 @@ body {
   }
 }
 .completed {
-  i, p {
+  i, label {
     opacity: 0.4;
   }
-  p {
+  label {
     text-decoration: line-through red;
   }
 }

@@ -8,4 +8,13 @@ new_task.hover(
       $(this).find(".trash").addClass("hide");
     }
   );
+
+new_task.find(".task_input_title").hide();
+new_task.find(".edit-task").on('click', function(){
+    $(this).parents('.row').find('.task_label_title').toggle();
+    $(this).parents('.row').find('.task_input_title').toggle();
+    
+    return false;
+  });
+
 project_div.find(".task-form #task_name")[0].value = "";

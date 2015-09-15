@@ -42,4 +42,13 @@ $(document).ready(function(){
     
     return false;
   });
+
+  $(".task_input_title").hide();
+  
+  $(".edit-task").on('click', function(){
+    $(this).parents('.row').find('.task_label_title').toggle();
+    $(this).parents('.row').find('.task_input_title').toggle();
+    
+    return false;
+  });
 });  
